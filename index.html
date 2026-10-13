@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyber T-Rex Runner - Modern Chrome Dino Game</title>
+  <meta name="description" content="A modern, neon-infused Chrome Dino runner game with responsive controls, powerups, day-night cycle, and sound effects.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background-glow"></div>
+  
+  <div class="game-wrapper">
+    <header class="game-header">
+      <div class="brand">
+        <span class="brand-icon">🦖</span>
+        <h1 class="brand-title">DINO RUNNER</h1>
+      </div>
+      <div class="stats-panel">
+        <div class="stat-badge high-score-badge">
+          <span class="label">HI</span>
+          <span id="high-score-val" class="value">00000</span>
+        </div>
+        <div class="stat-badge current-score-badge">
+          <span class="label">SCORE</span>
+          <span id="current-score-val" class="value">00000</span>
+        </div>
+        <div class="stat-badge speed-badge">
+          <span class="label">SPD</span>
+          <span id="speed-val" class="value">1.0x</span>
+        </div>
+        <button id="sound-toggle-btn" class="icon-btn" title="Toggle Sound" aria-label="Toggle Sound">
+          <span id="sound-icon">🔊</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="canvas-container" id="canvas-container">
+      <canvas id="gameCanvas" width="900" height="320"></canvas>
+
+      <!-- Start Overlay -->
+      <div id="start-screen" class="overlay active">
+        <div class="overlay-card">
+          <div class="dino-avatar-bounce">🦖</div>
+          <h2>T-REX RUNNER</h2>
+          <p class="subtitle">Dodge cacti, duck pterodactyls, collect shields, and beat your high score!</p>
+          <div class="controls-hint">
+            <div class="hint-key"><span>SPACE</span> or <span>▲</span> to Jump</div>
+            <div class="hint-key"><span>▼</span> to Duck / Fast Drop</div>
+          </div>
+          <button id="start-btn" class="action-btn glow-btn">PRESS SPACE OR TAP TO PLAY</button>
+        </div>
+      </div>
+
+      <!-- Game Over Overlay -->
+      <div id="game-over-screen" class="overlay hidden">
+        <div class="overlay-card game-over-card">
+          <div class="game-over-icon">💥</div>
+          <h2>GAME OVER</h2>
+          <p class="final-score-text">Final Score: <span id="final-score">0</span></p>
+          <div id="new-record-tag" class="new-record-tag hidden">🏆 NEW BEST RECORD!</div>
+          <button id="restart-btn" class="action-btn glow-btn">PLAY AGAIN</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Onscreen Controls for Touch / Mobile -->
+    <div class="mobile-controls" id="mobile-controls">
+      <button id="btn-duck" class="touch-btn duck-btn" aria-label="Duck">
+        <span>▼</span>
+        <small>DUCK</small>
+      </button>
+      <button id="btn-jump" class="touch-btn jump-btn" aria-label="Jump">
+        <span>▲</span>
+        <small>JUMP</small>
+      </button>
+    </div>
+
+    <footer class="game-footer">
+      <div class="guide-item"><kbd>Space</kbd> / <kbd>↑</kbd> Jump</div>
+      <div class="guide-item"><kbd>↓</kbd> Duck</div>
+      <div class="guide-item"><kbd>P</kbd> Pause</div>
+      <div class="guide-item"><kbd>M</kbd> Mute</div>
+    </footer>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
